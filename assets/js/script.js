@@ -1,23 +1,31 @@
-let grid_width_elements = 32;
-let grid_height_elements = 32;
-const element_size = 16; //Size in pixels
+
+
+const grid_size = 500;
 
 const grid_node = document.querySelector('#grid');
+grid_node.style.width = grid_size + 'px';
+grid_node.style.height = grid_size + 'px';
+
 const elements = [];
 //Crear divs con diferentes id.
-createGridFront();
+createGridFront(20);
 
-function createGridFront(){
+function createGridFront(grid_elements){
+    
     let aux_id = 0;
-    for(let i=0; i<grid_width_elements; ++i){
+    for(let i=0; i<grid_elements; ++i){
         const row = document.createElement('div');
         row.setAttribute('class','row');
         row.setAttribute('id','row_'+i);
-        for(j=0; j<grid_height_elements; ++j){
+
+        for(j=0; j<grid_elements; ++j){
             ++aux_id;
             const element = document.createElement('div');
             element.setAttribute('id',aux_id);
             element.setAttribute('class','element');
+            element.style.width = grid_size/grid_elements-2 + 'px';
+            element.style.height = grid_size/grid_elements-2 + 'px';
+
             row.appendChild(element); 
             elements.push(element);
         }    
@@ -54,7 +62,16 @@ clear_bttn.addEventListener('click',(e) => {
     initCanvas();
 });
 function initCanvas(){
-    clearGrid();
+    let grid_size = prompt("Please enter number of elements");
+    removeGrid();
+    createGridFront(grid_size);
+
+}
+function removeGrid(){
+    var items = document.getElementsByClassName('row');
+    while(items.length > 0){
+        items[0].parentNode.removeChild(items[0]);
+    }
 }
 function clearGrid(){
     elements.forEach((element) => {

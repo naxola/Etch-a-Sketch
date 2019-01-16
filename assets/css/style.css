@@ -1,6 +1,4 @@
 .element{
-    width: 10px;
-    height: 10px;
     border: 1px solid grey;
 }
 #container{
@@ -15,12 +13,10 @@
 #grid{
     margin: 30px 30px 30px 30px;
 }
-.element{
-    display: flex;
-    justify-content: center;
-}
+
 .row{
     display: flex;
+    align-content: stretch;
 }
 .blue-back{
     background-color: blue;
