@@ -1,0 +1,22 @@
+.element{
+    width: 10px;
+    height: 10px;
+    border: 1px solid grey;
+}
+#container{
+    display: flex;
+    justify-content: center;
+}
+#grid{
+    margin: 30px 30px 30px 30px;
+}
+.element{
+    display: flex;
+    justify-content: center;
+}
+.row{
+    display: flex;
+}
+.blue-back{
+    background-color: blue;
+}
