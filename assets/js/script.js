@@ -1,5 +1,5 @@
-const grid_width_elements = 32;
-const grid_height_elements = 32;
+let grid_width_elements = 32;
+let grid_height_elements = 32;
 const element_size = 16; //Size in pixels
 
 const grid_node = document.querySelector('#grid');
@@ -41,6 +41,7 @@ function addActionsToElements(){
         });
     });
 }
+
 function changeElementBackground(id){
     console.log(id);
     const element = document.getElementById(id);
@@ -48,3 +49,17 @@ function changeElementBackground(id){
 }
 
 //Button popup
+const clear_bttn = document.getElementById('clear');
+clear_bttn.addEventListener('click',(e) => {
+    initCanvas();
+});
+function initCanvas(){
+    clearGrid();
+}
+function clearGrid(){
+    elements.forEach((element) => {
+
+        // and for each one we add a 'click' listener
+        element.setAttribute('class', 'element');
+    });
+}
